@@ -37,20 +37,28 @@ os.chdir(htmlDirName)
 for p in places:
 	# Complete URL to parse
 	myUrl = urlStart + p + urlEnd
+	# If the above one doesnt work then use just urlStart + p
 	print("================Started parsing "+p+"======================")
 	print("getting html for "+p)
 	try:
 		req = Request(myUrl, headers=headers)
 		htmlObject = uReq(req)
-		htmlFile = htmlObject.read()
-		text = htmlFile.decode('utf-8')
-		print("saving the html file")
-		with open(p+'.html', 'w+') as myHTML:
-			myHTML.write(text)		
-		print('file '+p+'.html saved');
-
 	except:
-		print('The HTML page is not available for '+p)
+		# Just use https://holidify.com/places as the url
+		try:
+			req = Request(myUrl+p, headers=headers)
+			htmlObject = uReq(req)
+		except:
+			print('The HTML page is not available for '+p)
+			# if the html is not found then skip this city
+			continue
+
+	htmlFile = htmlObject.read()
+	text = htmlFile.decode('utf-8')
+	print("saving the html file")
+	with open(p+'.html', 'w+') as myHTML:
+		myHTML.write(text)		
+	print('file '+p+'.html saved');
 	
 # Go back to previous directory
 os.chdir('..')

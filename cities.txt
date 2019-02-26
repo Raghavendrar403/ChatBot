@@ -9,5 +9,6 @@ Delhi
 Mumbai
 Pune
 Jammu
-JAJA
 Belgaum
+Bangalore
+Ladakh
