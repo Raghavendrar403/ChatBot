@@ -50,7 +50,8 @@ for city in htmlFiles:
 
 				# Save the placeName and in the jsonData dictionary for the city
 				jsonData[cityName].append({
-					placeName:placeDescription,
+					'placeName': placeName,
+					'placeDesc': placeDescription,
 				})
 
 			except:
