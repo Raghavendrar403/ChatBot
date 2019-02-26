@@ -39,16 +39,23 @@ for p in places:
 	myUrl = urlStart + p + urlEnd
 	print("================Started parsing "+p+"======================")
 	print("getting html for "+p)
-	req = Request(myUrl, headers=headers)
-	htmlObject = uReq(req)
-	htmlFile = htmlObject.read()
-	text = htmlFile.decode('utf-8')
-	print("saving the html file")
-	with open(p+'.html', 'w+') as myHTML:
-		myHTML.write(text)		
-	print('file '+myUrl+' saved');
+	try:
+		req = Request(myUrl, headers=headers)
+		htmlObject = uReq(req)
+		htmlFile = htmlObject.read()
+		text = htmlFile.decode('utf-8')
+		print("saving the html file")
+		with open(p+'.html', 'w+') as myHTML:
+			myHTML.write(text)		
+		print('file '+p+'.html saved');
+
+	except:
+		print('The HTML page is not available for '+p)
 	
+# Go back to previous directory
 os.chdir('..')
+
+
 
 
 #req = Request(myUrl,headers=headers)
