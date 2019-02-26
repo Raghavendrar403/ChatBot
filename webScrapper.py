@@ -56,30 +56,3 @@ for p in places:
 os.chdir('..')
 
 
-
-
-#req = Request(myUrl,headers=headers)
-#
-#data = uReq(req)
-#
-#dataHTML = data.read()
-#
-#data.close()
-#
-## Start beautiful soup part
-#
-#dataSoup = bs(dataHTML, "html.parser")
-#
-#allh2 = dataSoup.findAll("h2",{"class":"ptvObjective"});
-#
-#famousPlaces = []
-#f = open("testBangalore.txt","w")
-#for x in allh2:
-#	print(x.text)
-#	famousPlaces.append(x.text)
-#	f.write("%s\n" % x.text);
-#
-#
-#f.close()
-#
-#
