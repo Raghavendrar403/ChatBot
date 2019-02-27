@@ -78,5 +78,5 @@ def getCity(cityName):
 			jsonData = json.load(jsonFile)
 			return jsonData
 	except FileNotFoundError as fnf_err:
-		print(fnf_err)
+		print(f'The data for {cityName} does not exist')
 		return 
