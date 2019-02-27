@@ -80,3 +80,6 @@ def getCity(cityName):
 	except FileNotFoundError as fnf_err:
 		print(f'The data for {cityName} does not exist')
 		return 
+
+
+# This function will find the place and then give out the 
